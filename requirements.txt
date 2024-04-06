@@ -1,0 +1,11 @@
+alive-progress
+gymnasium
+gymnasium[box2d]
+keras
+matplotlib
+numpy
+setuptools
+swig
+tensorflow
+torch
+wheel
