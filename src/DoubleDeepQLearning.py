@@ -45,9 +45,11 @@ class DoubleDeepQLearning:
             next_states = np.squeeze(next_states)
 
             # usando o modelo para selecionar as melhores acoes
-            next_max = np.amax(self.target_model.predict_on_batch(next_states), axis=1)
+            next_actions = np.argmax(self.value_model.predict_on_batch(next_states), axis=1)
+            next_state_next_action = next_states[np.arange(next_actions.shape[0]), next_actions]
             
-            targets = rewards + self.gamma * (next_max) * (1 - terminals)
+            
+            targets = rewards + self.gamma * (next_state_next_action) * (1 - terminals)
             targets_full = self.target_model.predict_on_batch(states)
             indexes = np.array([i for i in range(self.batch_size)])
             
