@@ -4,7 +4,7 @@ import numpy as np
 
 env = gym.make('LunarLander-v2', render_mode='human').env
 (state,_) = env.reset()
-model = keras.models.load_model('data/model_lunar_lander.keras')
+model = keras.models.load_model('data/model_DDQN_lunar_lander.keras')
 done = False
 truncated = False
 rewards = 0

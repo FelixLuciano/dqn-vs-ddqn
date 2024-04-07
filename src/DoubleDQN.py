@@ -4,8 +4,8 @@ import gc
 import keras
 from alive_progress import alive_bar
 
-class DoubleDeepQLearning:
-    def __init__(self, env, gamma, epsilon, epsilon_min, epsilon_dec, episodes, batch_size, memory, value_model, target_model, max_steps, interval):
+class DoubleDQN:
+    def __init__(self, env, gamma, epsilon, epsilon_min, epsilon_dec, episodes, batch_size, memory, value_model, max_steps, interval):
         self.env = env
         self.gamma = gamma
         self.epsilon = epsilon
@@ -15,9 +15,12 @@ class DoubleDeepQLearning:
         self.batch_size = batch_size
         self.memory = memory
         self.value_model = value_model
-        self.target_model = target_model
+        self.target_model = keras.models.clone_model(value_model)
+        self.target_model.set_weights(value_model.get_weights())
         self.max_steps = max_steps
         self.interval = interval
+
+
 
     def select_action(self, state):
         if np.random.rand() < self.epsilon:

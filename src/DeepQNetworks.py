@@ -5,7 +5,7 @@ import keras
 from alive_progress import alive_bar
 
 class DeepQNetworks:
-    def __init__(self, env, gamma, epsilon, epsilon_min, epsilon_dec, episodes, batch_size, memory, value_model, target_model, max_steps, interval):
+    def __init__(self, env, gamma, epsilon, epsilon_min, epsilon_dec, episodes, batch_size, memory, value_model, max_steps, interval):
         self.env = env
         self.gamma = gamma
         self.epsilon = epsilon
@@ -15,7 +15,8 @@ class DeepQNetworks:
         self.batch_size = batch_size
         self.memory = memory
         self.value_model = value_model
-        self.target_model = target_model
+        self.target_model = keras.models.clone_model(value_model)
+        self.target_model.set_weights(value_model.get_weights())
         self.max_steps = max_steps
         self.interval = interval
 

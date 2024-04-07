@@ -26,9 +26,6 @@ value_model.add(keras.layers.Dense(256, activation="relu"))
 value_model.add(keras.layers.Dense(128, activation="relu"))
 value_model.add(keras.layers.Dense(env.action_space.n, activation="linear"))
 
-target_model = keras.models.clone_model(value_model)
-target_model.set_weights(value_model.get_weights())
-
 value_model.summary()
 
 gamma = 0.99
@@ -44,7 +41,7 @@ interval = 10
 
 value_model.compile(loss=keras.losses.MeanSquaredError(), optimizer=keras.optimizers.Adam(learning_rate=learning_rate))
 
-DQN = DeepQNetworks(env, gamma, epsilon, epsilon_min, epsilon_dec, episodes, batch_size, memory, value_model, target_model, max_steps, interval)
+DQN = DeepQNetworks(env, gamma, epsilon, epsilon_min, epsilon_dec, episodes, batch_size, memory, value_model, max_steps, interval)
 rewards = DQN.train()
 
 import matplotlib.pyplot as plt
