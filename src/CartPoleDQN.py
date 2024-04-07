@@ -9,7 +9,7 @@ import os
 os.environ["KERAS_BACKEND"] = "torch"
 
 import keras
-from DeepQLearning import DeepQLearning
+from algorithms.DeepQNetworks import DeepQNetworks
 
 print(f'{os.environ["KERAS_BACKEND"]}')
 
@@ -41,7 +41,7 @@ interval = 10
 
 value_model.compile(loss=keras.losses.MeanSquaredError(), optimizer=keras.optimizers.Adam(learning_rate=learning_rate))
 
-DQN = DeepQLearning(env, gamma, epsilon, epsilon_min, epsilon_dec, episodes, batch_size, memory, value_model, max_steps)
+DQN = DeepQNetworks(env, gamma, epsilon, epsilon_min, epsilon_dec, episodes, batch_size, memory, value_model, max_steps, interval)
 rewards = DQN.train()
 
 import matplotlib.pyplot as plt
