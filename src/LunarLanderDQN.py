@@ -28,12 +28,12 @@ for i in range(5):
 
     value_model.summary()
 
-    gamma = 0.99
+    gamma = 0.75
     epsilon = 1.0 
     epsilon_min = 0.01
     epsilon_dec = 0.99
     learning_rate = 0.001
-    episodes = 800
+    episodes = 500
     batch_size = 64
     memory = deque(maxlen=10000) 
     max_steps = 1500

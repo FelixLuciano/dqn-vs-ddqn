@@ -13,7 +13,7 @@ from algorithms.DoubleDQN import DoubleDQN
 
 print(f'{os.environ["KERAS_BACKEND"]}')
 
-env = gym.make('LunarLander-v2')
+env = gym.make('CartPole-v1')
 #env.seed(0)
 np.random.seed(0)
 
@@ -29,13 +29,13 @@ model.summary()
 
 
 gamma = 0.99
-epsilon = 0.9
+epsilon = 1.0 
 epsilon_min = 0.01
-epsilon_dec = 0.99
-episodes = 1000
+epsilon_dec = 0.95
 learning_rate = 0.001
-batch_size = 10
-memory = deque(maxlen=10000) #talvez usar uma memoria mais curta
+episodes = 200
+batch_size = 64
+memory = deque(maxlen=10000)
 max_steps = 1500
 interval = 2
 
@@ -49,15 +49,15 @@ plt.plot(rewards)
 plt.xlabel('Episodes')
 plt.ylabel('# Rewards')
 plt.title('# Rewards vs Episodes')
-plt.savefig("results/lunar_lander_DDQN.jpg")     
+plt.savefig("results/cart_pole_DDQN.jpg")     
 plt.close()
 
-with open('results/lunar_lander_DDQN_rewards.csv', 'a', newline='') as file:
+with open('results/cart_pole_DDQN_rewards.csv', 'a', newline='') as file:
     writer = csv.writer(file)
     episode=0
     for reward in rewards:
         writer.writerow([episode,reward])
         episode+=1
 
-model.save('data/model_DDQN_lunar_lander.keras')
+model.save('data/model_DDQN_cart_pole.keras')
 

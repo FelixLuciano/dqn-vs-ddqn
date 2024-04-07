@@ -13,7 +13,7 @@ from algorithms.DeepQNetworks import DeepQNetworks
 
 print(f'{os.environ["KERAS_BACKEND"]}')
 
-env = gym.make('LunarLander-v2')
+env = gym.make('CartPole-v1')
 #env.seed(0)
 np.random.seed(0)
 
@@ -28,16 +28,16 @@ value_model.add(keras.layers.Dense(env.action_space.n, activation="linear"))
 
 value_model.summary()
 
-gamma = 0.99
+gamma = 0.7
 epsilon = 1.0 
 epsilon_min = 0.01
 epsilon_dec = 0.99
 learning_rate = 0.001
-episodes = 100
+episodes = 500
 batch_size = 64
 memory = deque(maxlen=10000) #talvez usar uma memoria mais curta
 max_steps = 1500
-interval = 10
+interval = 4
 
 value_model.compile(loss=keras.losses.MeanSquaredError(), optimizer=keras.optimizers.Adam(learning_rate=learning_rate))
 
@@ -49,15 +49,15 @@ plt.plot(rewards)
 plt.xlabel('Episodes')
 plt.ylabel('# Rewards')
 plt.title('# Rewards vs Episodes')
-plt.savefig("results/lunar_lander_DeepQNetworks.jpg")     
+plt.savefig("results/cart_pole_DeepQNetworks.jpg")     
 plt.close()
 
-with open('results/lunar_lander_DeepQNetworks_rewards.csv', 'a', newline='') as file:
+with open('results/cart_pole_DeepQNetworks_rewards.csv', 'a', newline='') as file:
     writer = csv.writer(file)
     episode=0
     for reward in rewards:
         writer.writerow([episode,reward])
         episode+=1
 
-value_model.save('data/model_lunar_lander.keras')
+value_model.save('data/model_cart_pole.keras')
 

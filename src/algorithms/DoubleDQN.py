@@ -49,7 +49,8 @@ class DoubleDQN:
 
             # usando o modelo para selecionar as melhores acoes
             next_actions = np.argmax(self.value_model.predict_on_batch(next_states), axis=1)
-            next_state_next_action = next_states[np.arange(next_actions.shape[0]), next_actions]
+            next_states_values = self.target_model.predict_on_batch(next_states)    
+            next_state_next_action = next_states_values[np.arange(next_actions.shape[0]), next_actions]
             
             
             targets = rewards + self.gamma * (next_state_next_action) * (1 - terminals)
