@@ -37,7 +37,7 @@ for i in range(5):
     batch_size = 64
     memory = deque(maxlen=10000) 
     max_steps = 1500
-    interval = 4
+    interval = 2
 
     model.compile(loss=keras.losses.MeanSquaredError(), optimizer=keras.optimizers.Adam(learning_rate=learning_rate))
 
