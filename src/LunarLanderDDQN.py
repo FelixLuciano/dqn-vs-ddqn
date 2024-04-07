@@ -12,6 +12,7 @@ import keras
 from algorithms.DoubleDQN import DoubleDQN
 
 for i in range(5):
+    print(f"Training model {i+1}")
     env = gym.make('LunarLander-v2')
     #env.seed(0)
     np.random.seed(0)
