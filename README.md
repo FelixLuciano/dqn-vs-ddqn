@@ -1,4 +1,4 @@
-# Projeto Inetermediário: Double Deep Q-Learning vs Deep Q-Learning Network no aprendizado de agentes em ambientes de Reinforcement Learning
+# Projeto Intermediário: Double Deep Q-Learning vs Deep Q-Learning Network no aprendizado de agentes em ambientes de Reinforcement Learning
 
 ## Developers
 </div >
