@@ -14,7 +14,7 @@ from algorithms.DoubleDQN import DoubleDQN
 for i in range(5):
     print(f"Training model {i+1}")
     env = gym.make('LunarLander-v2')
-    #env.seed(0)
+    # env.seed(0)
     np.random.seed(0)
 
     print('State space: ', env.observation_space)
@@ -27,11 +27,10 @@ for i in range(5):
     model.add(keras.layers.Dense(env.action_space.n, activation="linear"))
     model.summary()
 
-
     gamma = 0.75
     epsilon = 1.0 
     epsilon_min = 0.01
-    epsilon_dec = 0.95
+    epsilon_dec = 0.99
     episodes = 500
     learning_rate = 0.001
     batch_size = 64
@@ -59,5 +58,4 @@ for i in range(5):
             writer.writerow([episode,reward])
             episode+=1
 
-    model.save(f'data/model_DDQN_lunar_lander.keras {i+1}')
-
+    model.save(f"data/model_DDQN_lunar_lander{i+1}.keras")
