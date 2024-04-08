@@ -93,4 +93,4 @@ Para avaliar o desempenho dos algoritmos DQN e DDQN, foram realizados experiment
 
 ## Conclusão
 
-Em ambos os ambientes de simulação, os dois algoritmos atingiram recompensas similares, com poucas diferenças entre si. No entanto, como pode ser visto no caso do CartPole, o DDQN apresentou uma variação muito menor que o DQN, o que indica que o DDQN é mais estável e consistente no aprendizado do agente. No entanto, para casos onde o agente dá pouca importância para resompensas futuras (gamma baixo), o DDQN não apresentou vantagens significativas em relação ao DQN.
+Em ambos os ambientes de simulação, os dois algoritmos atingiram recompensas similares, com poucas diferenças entre si. No entanto, como pode ser visto no caso do CartPole, o DDQN apresentou uma variação muito menor que o DQN, o que indica que o DDQN é mais estável e consistente no aprendizado do agente. No entanto, para casos onde o agente dá pouca importância para recompensas futuras (gamma baixo), o DDQN não apresentou vantagens significativas em relação ao DQN.
