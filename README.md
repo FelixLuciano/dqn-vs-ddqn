@@ -1,6 +1,6 @@
 [Fabrício Jailson Barth, Dr.](http://lattes.cnpq.br/3446364988774155). Rinforcement Learning. [Insper](https://github.com/Insper), 2024.
 
-# Projeto Inetermediário:<br />Double Deep Q-Learning vs Deep Q-Learning Network no aprendizado de agentes em ambientes de Reinforcement Learning
+# Projeto Intermediário:<br />Double Deep Q-Learning vs Deep Q-Learning Network no aprendizado de agentes em ambientes de Reinforcement Learning
 
 ## Desenvolvedores
 
