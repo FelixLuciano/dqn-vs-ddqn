@@ -9,3 +9,4 @@ swig
 tensorflow
 torch
 wheel
+plotly
