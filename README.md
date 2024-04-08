@@ -82,11 +82,11 @@ Para avaliar o desempenho dos algoritmos DQN e DDQN, foram realizados experiment
 
 ### CartPole
 
-![CartPole](./img/cartpole_dqn_ddqn.png)
+![CartPole](./img/cartpole_dqn_ddqn.svg)
 
 ### LunarLander
 
-![LunarLander](./img/lunar_lander_dqn_ddqn.png)
+![LunarLander](./img/lunar_lander_dqn_ddqn.svg)
 
 ## Conclusão
 
