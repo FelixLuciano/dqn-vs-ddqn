@@ -28,18 +28,18 @@ Este ambiente corresponde à versão do problema do pêndulo invertido descrito 
 ##### Espaço de Ação
 A ação é um ndarray com formato (1,) que pode assumir os valores {0, 1}, indicando a direção da força fixa com a qual o carrinho é empurrado.
 
-0: Empurrar o carrinho para a esquerda
+- 0: Empurrar o carrinho para a esquerda
 
-1: Empurrar o carrinho para a direita
+- 1: Empurrar o carrinho para a direita
 
 ##### Espaço de Observação
 
 A observação é um ndarray com formato (4,) com os valores correspondentes às seguintes posições e velocidades:
 
-0: Posição do carrinho
-1: Velocidade do carrinho
-2: Ângulo do pêndulo
-3: Velocidade angular do pêndulo
+- 0: Posição do carrinho
+- 1: Velocidade do carrinho
+- 2: Ângulo do pêndulo
+- 3: Velocidade angular do pêndulo
 
 A posição x do carrinho (índice 0) pode assumir valores entre (-4.8, 4.8), mas o episódio termina se o carrinho sair do intervalo (-2.4, 2.4).
 
